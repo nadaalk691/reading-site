@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مكتبة القراءة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Cairo, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+
+        .book {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .book h3 {
+            margin: 0;
+        }
+
+        .book p {
+            color: #555;
+        }
+
+        .book a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background: #3498db;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .book a:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📚 مكتبة القراءة لمدرسة الربة الثانوية الشاملة المختلطة</h1>
+    <p>ابحث عن كتابك المفضل</p>
+</header>
+
+<div class="container">
+
+    <!-- مربع البحث -->
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="searchBooks()" placeholder="🔍 ابحث عن كتاب...">
+    </div>
+
+    <!-- الكتب -->
+    <div class="book">
+        <h3>كتاب فن الحياة</h3>
+        <p>كتاب يتحدث عن تطوير الذات وفهم الحياة.</p>
+        <a href="book1.html">ابدأ القراءة</a>
+    </div>
+
+    <div class="book">
+        <h3>كتاب خواطر</h3>
+        <p>مجموعة خواطر وتأملات عميقة.</p>
+        <a href="book2.html">ابدأ القراءة</a>
+    </div>
+
+    <div class="book">
+        <h3>كتاب التفكير الإيجابي</h3>
+        <p>كيف تغيّر حياتك بأسلوب تفكيرك.</p>
+        <a href="#">قريبًا</a>
+    </div>
+
+</div>
+
+<script>
+function searchBooks() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let books = document.getElementsByClassName("book");
+
+    for (let i = 0; i < books.length; i++) {
+        let title = books[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+            books[i].style.display = "";
+        } else {
+            books[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
